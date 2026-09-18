@@ -22,7 +22,9 @@ jobs:
                   java-version: '21'
 
     - name: Build Jar
-      run: ./mnvw clean package -DskipTests
+      run: 
+         chmod +X ./mvnw
+         ./mnvw clean package -DskipTests
 
     - name: Login to Docker Hub
       run: docker login -u $"{{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
